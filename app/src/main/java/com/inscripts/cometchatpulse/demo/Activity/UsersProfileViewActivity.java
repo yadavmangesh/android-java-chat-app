@@ -113,7 +113,8 @@ public class UsersProfileViewActivity extends AppCompatActivity implements
 
         userProfileActivityPresenter.handleIntent(getIntent());
 
-        linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true);
+
         rvMedia.setLayoutManager(linearLayoutManager);
 
         if (getIntent().hasExtra(StringContract.IntentStrings.PROFILE_VIEW)) {
@@ -141,7 +142,7 @@ public class UsersProfileViewActivity extends AppCompatActivity implements
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
 
-                if (!recyclerView.canScrollVertically(1)) {
+                if (!recyclerView.canScrollHorizontally(-1)) {
 
                     userProfileActivityPresenter.getMediaMessage(contactUid,10);
 
