@@ -39,7 +39,7 @@ implements CometChatActivityContract.CometChatActivityPresenter {
 
     @Override
     public void removeMessageListener(String listenerId) {
-
+      CometChat.removeMessageListener(listenerId);
     }
 
     @Override
